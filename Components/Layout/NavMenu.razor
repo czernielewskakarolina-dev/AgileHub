@@ -1,0 +1,22 @@
+<header class="sidebar">
+    <a href="#home" class="logo">Agile<span>Hub</span></a>
+
+    <nav class="nav-menu" aria-label="Nawigacja główna">
+        @foreach (var (href, tekst) in linki)
+        {
+            <a href="@href">@tekst</a>
+        }
+        <a class="autorka">Autorka projektu: Karolina Czernielewska nr. albumu: 126028</a>
+    </nav>
+</header>
+
+@code {
+    private readonly (string Href, string Tekst)[] linki =
+    {
+        ("#home", "Start"),
+        ("#scrum", "Scrum"),
+        ("#master", "Scrum Master"),
+        ("#sprint", "Sprint"),
+        ("#coach", "Agile Coach")
+    };
+}

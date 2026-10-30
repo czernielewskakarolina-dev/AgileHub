@@ -1,0 +1,27 @@
+<section class="panel" id="sprint">
+    <p class="label">Proces pracy</p>
+    <h2>Jak wygląda sprint?</h2>
+
+    <div class="timeline">
+        @foreach (var etap in etapy)
+        {
+            <article>
+                <span>@etap.Numer</span>
+                <h3>@etap.Tytul</h3>
+                <p>@etap.Opis</p>
+            </article>
+        }
+    </div>
+</section>
+
+@code {
+    private record EtapSprintu(string Numer, string Tytul, string Opis);
+
+    private readonly List<EtapSprintu> etapy = new()
+    {
+        new("01", "Planowanie", "Zespół ustala cel sprintu i wybiera zadania do wykonania."),
+        new("02", "Daily Scrum", "Krótkie spotkanie pomagające zsynchronizować pracę zespołu."),
+        new("03", "Review", "Prezentacja efektów pracy oraz zebranie informacji zwrotnej."),
+        new("04", "Retrospektywa", "Analiza procesu i ustalenie, co można poprawić w kolejnym sprincie.")
+    };
+}
